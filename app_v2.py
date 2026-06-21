@@ -1,12 +1,1 @@
-   import streamlit as st
-import requests
-
-st.title("🚀 AI Crypto Trading Dashboard")
-
-url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-res = requests.get(url).json()
-btc_price = float(res["bitcoin"]["usd"])
-
-st.metric("💰 Latest BTC Price", f"${btc_price:,.2f}")
-st.line_chart([btc_price - 300, btc_price - 100, btc_price])
-st.success("Loaded perfectly!")
+import streamlit as st; import requests; st.title("🚀 AI Crypto Trading Dashboard"); res = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd").json(); btc_price = float(res["bitcoin"]["usd"]); st.metric("💰 Latest BTC Price", f"${btc_price:,.2f}"); st.line_chart([btc_price - 300, btc_price - 100, btc_price]); st.success("Loaded perfectly!")
